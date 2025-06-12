@@ -7,6 +7,10 @@ Es un programa que realiza conversiones de tiempo.
 
 
 Teconologias utilizadas:
-
+ - JavaScript
+ - HTML
 
 Instrucciones de uso:
+ - Seleccionar la conversión deseada
+ - Introducir el valor a calcular (numerico)
+ - Pulsar el boton "Convertir"
