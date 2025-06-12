@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Tiempo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        label, select, input, button { display: block; width: 100%; margin-bottom: 15px; }
+        button { background: #0078d7; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #005fa3; }
+        #resultado { font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Conversor de Tiempo</h2>
+        <label for="conversion">Selecciona la conversión:</label>
+        <select id="conversion">
+            <option value="h_m">Horas a minutos</option>
+            <option value="m_s">Minutos a segundos</option>
+            <option value="d_h">Días a horas</option>
+            <option value="s_d">Semanas a días</option>
+        </select>
+        <label for="valor">Introduce el valor:</label>
+        <input type="number" id="valor" min="0" step="any" required>
+        <button onclick="convertir()">Convertir</button>
+        <div id="resultado"></div>
+    </div>
+    <script>
+        function convertir() {
+            const conversion = document.getElementById('conversion').value;
+            const valor = parseFloat(document.getElementById('valor').value);
+            let resultado = '';
+
+            if (isNaN(valor) || valor < 0) {
+                resultado = 'Por favor, introduce un valor válido.';
+            } else {
+                switch (conversion) {
+                    case 'h_m':
+                        resultado = `${valor} horas son ${valor * 60} minutos.`;
+                        break;
+                    case 'm_s':
+                        resultado = `${valor} minutos son ${valor * 60} segundos.`;
+                        break;
+                    case 'd_h':
+                        resultado = `${valor} días son ${valor * 24} horas.`;
+                        break;
+                    case 's_d':
+                        resultado = `${valor} semanas son ${valor * 7} días.`;
+                        break;
+                }
+            }
+            document.getElementById('resultado').textContent = resultado;
+        }
+    </script>
+</body>
+</html>
